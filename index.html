@@ -1,125 +1,94 @@
 <!DOCTYPE html>
 <html lang="uk">
-
 <head>
-
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>StandUp Харків</title>
-
-<link rel="stylesheet" href="style.css">
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>StandUp • Харків</title>
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
+  <nav>
+    <div><b>StandUp • Харків</b></div>
+    <div class="navLinks">
+      <a href="#" onclick="openTiming();return false;">Таймінг</a>
+      <a href="#" onclick="openRules();return false;">Правила</a>
+      <a href="#" onclick="openTickets();return false;">Квитки</a>
+      <a href="#" onclick="openBuy();return false;">Купити квиток</a>
+    </div>
+  </nav>
 
-<nav>
+  <main class="main">
+    <h1>Стендап вечір у Харкові</h1>
+    <div class="meta">
+      7 березня 2026 • 20:00<br>
+      Холодногірська вулиця, 11
+    </div>
 
-<div><b>StandUp • Харків</b></div>
+    <div class="statusWrap" id="siteStatusWrap" style="display:none">
+      <div class="statusTitle">Статус оплати</div>
+      <div class="statusChip statusPending" id="siteStatusChip">Очікує підтвердження</div>
+      <div class="statusHint" id="siteStatusHint">Ми перевіряємо квитанцію.</div>
+    </div>
 
-<div>
-<a onclick="openTiming()">Таймінг</a>
-<a onclick="openRules()">Правила</a>
-<a onclick="openTickets()">Квитки</a>
-<a onclick="openBuy()">Купити квиток</a>
-</div>
+    <button class="buyBtn" onclick="openBuy()">Купити квиток</button>
+  </main>
 
-</nav>
+  <div class="modal" id="infoModal">
+    <div class="modalBox">
+      <div class="modalHead">
+        <h2 id="modalTitle">Інформація</h2>
+        <button class="iconBtn" onclick="closeInfo()">✕</button>
+      </div>
+      <div id="modalContent" class="modalBody"></div>
+      <button class="closeBtn" onclick="closeInfo()">Закрити</button>
+    </div>
+  </div>
 
+  <div class="modal" id="buyModal">
+    <div class="modalBox">
+      <div class="modalHead">
+        <h2>Обери квиток</h2>
+        <button class="iconBtn" onclick="closeBuy()">✕</button>
+      </div>
 
-<div class="main">
+      <div class="modalBody">
+        <div id="ticketSelect">
+          <div class="ticket" onclick="selectTicket('Стандарт',1500)">Стандарт <span>1500 грн</span></div>
+          <div class="ticket" onclick="selectTicket('Хороші місця',2000)">Хороші місця <span>2000 грн</span></div>
+          <div class="ticket" onclick="selectTicket('VIP',3000)">VIP <span>3000 грн</span></div>
+        </div>
 
-<h1>Стендап вечір у Харкові</h1>
+        <div id="payment" style="display:none">
+          <div class="priceBox" id="ticketInfo"></div>
 
-<div class="meta">
-7 березня 2026 • 20:00<br>
-Холодногірська вулиця, 11
-</div>
+          <div class="payBox">
+            <div class="payTitle">Оплата</div>
+            <div class="paySub">Оплати на картку:</div>
+            <div class="cardNumber">0000 0000 0000 0000</div>
+          </div>
 
-<button class="buy" onclick="openBuy()">Купити квиток</button>
+          <div class="formBox">
+            <label class="label">Ім'я</label>
+            <input class="input" id="name" placeholder="Ваше ім'я">
 
-</div>
+            <label class="label">Номер телефону</label>
+            <div class="phoneBox">
+              <div class="prefix">+380</div>
+              <input class="phoneInput" id="phone" placeholder="00 000 00 00">
+            </div>
 
+            <label class="label">Квитанція</label>
+            <input class="input" type="file" id="receipt" accept="image/*">
 
-<!-- INFO MODAL -->
+            <button class="sendBtn" onclick="sendReceipt()">Відправити квитанцію</button>
+          </div>
+        </div>
+      </div>
 
-<div class="modal" id="infoModal">
+      <button class="closeBtn" onclick="closeBuy()">Закрити</button>
+    </div>
+  </div>
 
-<div class="modalBox">
-
-<h2 id="modalTitle"></h2>
-
-<div id="modalContent"></div>
-
-<button class="close" onclick="closeInfo()">Закрити</button>
-
-</div>
-
-</div>
-
-
-<!-- BUY MODAL -->
-
-<div class="modal" id="buyModal">
-
-<div class="modalBox">
-
-<h2>Обери квиток</h2>
-
-<div id="ticketSelect">
-
-<div class="ticket" onclick="selectTicket('Стандарт',1500)">
-Стандарт — 1500 грн
-</div>
-
-<div class="ticket" onclick="selectTicket('Хороші місця',2000)">
-Хороші місця — 2000 грн
-</div>
-
-<div class="ticket" onclick="selectTicket('VIP',3000)">
-VIP — 3000 грн
-</div>
-
-</div>
-
-
-<div id="payment" style="display:none">
-
-<div class="price" id="ticketInfo"></div>
-
-<p>Оплати на картку:</p>
-
-<b>5355 2800 5690 4285</b>
-
-<div class="formBox">
-
-<label class="label">Ім'я</label>
-<input class="input" id="name">
-
-<label class="label">Номер телефону</label>
-
-<div class="phoneBox">
-<div class="prefix">+380</div>
-<input class="phoneInput" id="phone">
-</div>
-
-<label class="label">Квитанція</label>
-<input class="input" type="file" id="receipt">
-
-<button class="sendBtn" onclick="sendReceipt()">Відправити</button>
-
-</div>
-
-</div>
-
-<button class="close" onclick="closeBuy()">Закрити</button>
-
-</div>
-
-</div>
-
-<script src="script.js"></script>
-
+  <script src="script.js"></script>
 </body>
 </html>
