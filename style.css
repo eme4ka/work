@@ -1,171 +1,199 @@
+html, body { height:100%; overflow:hidden; }
 body{
-margin:0;
-font-family:Arial;
-background:#0b0f17;
-color:white;
-overflow:hidden;
+  margin:0;
+  font-family:Arial, sans-serif;
+  background:#0b0f17;
+  color:#fff;
 }
-
-/* NAVBAR */
 
 nav{
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:15px 25px;
-background:#101827;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:14px 18px;
+  background:#101827;
 }
 
-nav a{
-color:#aaa;
-text-decoration:none;
-margin-left:20px;
-font-weight:bold;
-cursor:pointer;
+.navLinks a{
+  color:#aab;
+  text-decoration:none;
+  margin-left:16px;
+  font-weight:700;
 }
-
-nav a:hover{
-color:white;
-}
-
-/* MAIN */
 
 .main{
-height:calc(100vh - 70px);
-display:flex;
-align-items:center;
-justify-content:center;
-text-align:center;
-flex-direction:column;
-padding:20px;
+  height:calc(100vh - 52px);
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:20px;
 }
 
-h1{
-font-size:38px;
-margin-bottom:10px;
-}
+h1{ font-size:38px; margin:0 0 10px; }
+.meta{ color:#aab; margin-bottom:20px; line-height:1.5; }
 
-.meta{
-color:#aaa;
-margin-bottom:25px;
+.buyBtn{
+  padding:12px 18px;
+  border:0;
+  border-radius:12px;
+  color:#fff;
+  font-weight:900;
+  cursor:pointer;
+  background:linear-gradient(90deg,#ff2d7a,#7c3aed);
 }
-
-button{
-padding:12px 20px;
-border:none;
-border-radius:10px;
-cursor:pointer;
-font-weight:bold;
-}
-
-.buy{
-background:linear-gradient(90deg,#ff2d7a,#7c3aed);
-color:white;
-}
-
-/* MODAL */
 
 .modal{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:rgba(0,0,0,0.7);
-display:none;
-align-items:center;
-justify-content:center;
+  position:fixed;
+  inset:0;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  background:rgba(0,0,0,.7);
+  padding:14px;
 }
 
 .modalBox{
-background:#111827;
-padding:25px;
-border-radius:15px;
-width:90%;
-max-width:420px;
+  width:min(460px, 94vw);
+  background:#111827;
+  border-radius:16px;
+  padding:16px;
 }
 
-.close{
-margin-top:20px;
-background:#333;
-color:white;
+.modalHead{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
 }
 
-/* TICKETS */
+.iconBtn{
+  width:36px;
+  height:36px;
+  border:0;
+  border-radius:10px;
+  background:#222;
+  color:#fff;
+  cursor:pointer;
+}
+
+.modalBody{
+  margin-top:12px;
+  max-height:60vh;
+  overflow:auto;
+}
+
+.closeBtn{
+  margin-top:14px;
+  width:100%;
+  padding:12px;
+  border:0;
+  border-radius:12px;
+  background:#2a2a2a;
+  color:#fff;
+  font-weight:700;
+  cursor:pointer;
+}
 
 .ticket{
-background:#1f2937;
-padding:14px;
-border-radius:10px;
-margin:10px 0;
-cursor:pointer;
+  display:flex;
+  justify-content:space-between;
+  padding:14px;
+  margin:10px 0;
+  border-radius:12px;
+  background:#1f2937;
+  cursor:pointer;
+  font-weight:800;
 }
 
-.ticket:hover{
-background:#2d3748;
+.ticket span{ color:#aab; }
+
+.priceBox{
+  margin-top:8px;
+  padding:12px;
+  border-radius:12px;
+  background:#2a3350;
+  font-weight:900;
 }
 
-.price{
-background:#2a3350;
-padding:12px;
-border-radius:8px;
-margin-top:15px;
+.payBox{
+  margin-top:12px;
+  padding:12px;
+  border-radius:12px;
+  background:#1b2233;
 }
 
-/* FORM */
-
-.formBox{
-margin-top:15px;
+.cardNumber{
+  margin-top:8px;
+  font-weight:900;
+  letter-spacing:1px;
 }
 
-.label{
-font-size:14px;
-color:#aaa;
-margin-bottom:5px;
-display:block;
-}
+.formBox{ margin-top:12px; text-align:left; }
+.label{ display:block; margin:10px 0 6px; color:#aab; font-weight:700; }
 
 .input{
-width:100%;
-padding:12px;
-border-radius:10px;
-border:1px solid #333;
-background:#0f1625;
-color:white;
-margin-bottom:12px;
+  width:100%;
+  padding:12px;
+  border-radius:12px;
+  border:1px solid #333;
+  background:#0f1625;
+  color:#fff;
 }
 
-/* PHONE */
-
 .phoneBox{
-display:flex;
-align-items:center;
-background:#0f1625;
-border-radius:10px;
-border:1px solid #333;
-overflow:hidden;
-margin-bottom:12px;
+  display:flex;
+  border:1px solid #333;
+  border-radius:12px;
+  overflow:hidden;
+  background:#0f1625;
 }
 
 .prefix{
-padding:12px;
-background:#1f2937;
-color:#ccc;
-font-weight:bold;
+  padding:12px;
+  background:#1f2937;
+  color:#ccc;
+  font-weight:900;
 }
 
 .phoneInput{
-flex:1;
-padding:12px;
-border:none;
-background:none;
-color:white;
-outline:none;
+  flex:1;
+  border:0;
+  outline:none;
+  padding:12px;
+  background:transparent;
+  color:#fff;
 }
 
 .sendBtn{
-background:#ff2d7a;
-color:white;
-width:100%;
-margin-top:10px;
+  margin-top:14px;
+  width:100%;
+  padding:12px;
+  border:0;
+  border-radius:12px;
+  color:#fff;
+  font-weight:900;
+  cursor:pointer;
+  background:linear-gradient(90deg,#ff2d7a,#7c3aed);
 }
+
+.statusWrap{
+  width:min(520px, 92vw);
+  margin-bottom:16px;
+  padding:14px;
+  border-radius:14px;
+  background:#161d2d;
+  text-align:left;
+}
+
+.statusTitle{ font-weight:900; margin-bottom:8px; }
+.statusChip{
+  display:inline-block;
+  padding:10px 12px;
+  border-radius:999px;
+  font-weight:900;
+}
+.statusPending{ background:#5c450f; }
+.statusAccepted{ background:#134b24; }
+.statusRejected{ background:#5a1d1d; }
+.statusHint{ color:#aab; margin-top:8px; font-size:13px; }
